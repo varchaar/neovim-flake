@@ -49,11 +49,13 @@
         ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
         ]
         ++ pkgs.lib.optionals pkgs.stdenv.isDarwin
-        []; # needed by vim clipboard-image plugin
+        []; 
+
       neovim-augmented = recursiveMerge [
         pkgs.neovim-unwrapped
         {buildInputs = dependencies;}
       ];
+
       packages.my_neovim = pkgs.wrapNeovim neovim-augmented {
         viAlias = true;
         vimAlias = true;
@@ -80,6 +82,7 @@
           packages.myPlugins = with pkgs.vimPlugins; {
             start = with pkgs.vimPlugins;
               [
+                tokyonight-nvim # tokyonight theme
               ]
               ++ pkgs.lib.optionals (!pkgs.stdenv.isDarwin) [
               ];
