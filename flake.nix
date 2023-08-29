@@ -39,43 +39,9 @@
         ];
       };
 
-      configModule = {
-      };
-
-      customNeovim = nixvim.legacyPackages.x86_64-linux.makeNixvim {
-        plugins.lsp.enable = true;
-        globals.mapleader = " ";
-        colorschemes.tokyonight.enable = true;
-        colorschemes.tokyonight.style = "night";
-        plugins.noice.enable = true;
-        plugins.neo-tree.enable = true;
-        plugins.which-key.enable = true;
-        maps = {
-          normal = {
-            "<leader>e" = {
-              action = "<cmd>Neotree toggle<cr>";
-              desc = "Toggle Explorer";
-            };
-            "<C-h>" = {
-              action = "<C-w>h";
-              desc = "Go to left window";
-            };
-            "<C-j>" = {
-              action = "<C-w>j";
-              desc = "Go to lower window";
-              remap = true;
-            };
-            "<C-k>" = {
-              action = "<C-w>k";
-              desc = "Go to upper window";
-              remap = true;
-            };
-            "<C-l>" = {
-              action = "<C-w>l";
-              desc = "Go to left window";
-              remap = true;
-            };
-          }; # Same as nnoremap <leader>m <silent> <cmd>make<CR>
+      customNeovim = nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+        module = {
+          imports = [./nixvim];
         };
       };
     in rec {

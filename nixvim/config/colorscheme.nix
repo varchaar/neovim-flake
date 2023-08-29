@@ -1,0 +1,3 @@
+{
+  colorschemes.kanagawa.enable = true;
+}
