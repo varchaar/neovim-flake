@@ -2,6 +2,7 @@
   imports = [
     ./alpha.nix
     ./indent-blankline.nix
+    ./bufferline.nix
   ];
 
   plugins = {
