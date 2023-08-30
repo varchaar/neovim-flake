@@ -1,3 +1,6 @@
 {
-  colorschemes.kanagawa.enable = true;
+  colorschemes.tokyonight = {
+    enable = true;
+    style = "night";
+  };
 }

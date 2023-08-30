@@ -6,6 +6,7 @@
         action = "<cmd>Neotree toggle<cr>";
         desc = "Toggle Explorer";
       };
+
       "<C-h>" = {
         action = "<C-w>h";
         desc = "Go to left window";
@@ -25,6 +26,37 @@
         desc = "Go to left window";
         remap = true;
       };
-    }; # Same as nnoremap <leader>m <silent> <cmd>make<CR>
+      # Window management
+      "<leader>ww" = {
+        action = "<C-W>p";
+        desc = "Other window";
+        remap = true;
+      };
+      "<leader>wd" = {
+        action = "<C-W>c";
+        desc = "Delete window";
+        remap = true;
+      };
+      "<leader>w-" = {
+        action = "<C-W>s";
+        desc = "Split window below";
+        remap = true;
+      };
+      "<leader>w|" = {
+        action = "<C-W>v";
+        desc = "Split window right";
+        remap = true;
+      };
+      "<leader>-" = {
+        action = "<C-W>s";
+        desc = "Split window below";
+        remap = true;
+      };
+      "<leader>|" = {
+        action = "<C-W>v";
+        desc = "Split window right";
+        remap = true;
+      };
+    }; 
   };
 }

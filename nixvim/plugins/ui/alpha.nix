@@ -13,10 +13,6 @@
     };
   };
 in {
-  # plugins.alpha = {
-  #   enable = true;
-  # };
-
   extraPlugins = [
     config.plugins.alpha.package
     pokemon-nvim
