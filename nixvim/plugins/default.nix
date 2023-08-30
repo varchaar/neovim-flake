@@ -1,5 +1,7 @@
 {
   imports = [
+    ./editor
+
     ./ui.nix
   ];
 }
