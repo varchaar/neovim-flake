@@ -12,6 +12,7 @@
       sha256 = "ZTMkSe7PZYOvdUwgx6x9iruwQ/ioxTPzRFeOh4LAylM=";
     };
   };
+  
 in {
   extraPlugins = [
     config.plugins.alpha.package
@@ -26,7 +27,7 @@ in {
     local pokemonNumber = string.format("%04d", math.random(1, 493)) 
     pokemon.setup({
       number = pokemonNumber, 
-      size = 'auto',
+      size = 'tiny',
     })
     dashboard.section.header.val = pokemon.header()
 

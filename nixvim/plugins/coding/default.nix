@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./cmp.nix
   ];
   extraPlugins = [
     pkgs.vimPlugins.friendly-snippets
