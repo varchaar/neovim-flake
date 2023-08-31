@@ -27,7 +27,7 @@ in {
     local pokemonNumber = string.format("%04d", math.random(1, 493)) 
     pokemon.setup({
       number = pokemonNumber, 
-      size = 'tiny',
+      size = 'auto',
     })
     dashboard.section.header.val = pokemon.header()
 
