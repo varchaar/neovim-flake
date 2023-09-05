@@ -2,7 +2,7 @@
   plugins.lsp = {
     enable = true;
     servers = {
-      volar.enable = true;
+      vuels.enable = true;
       rust-analyzer.enable = true;
       nil_ls.enable = true;
       tsserver.enable = true;
