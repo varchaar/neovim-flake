@@ -7,21 +7,27 @@
         options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp" }   
       })'';
 
-  maps.normal = {
-    "<leader>qs" = {
+  keymaps = [
+    {
+      key = "<leader>qs";
+      mode = "n";
       action = ''function() require("persistence").load() end'';
       lua = true;
-      desc = "Restore Session";
-    };
-    "<leader>ql" = {
+      options.desc = "Restore Session";
+    }
+    {
+      key = "<leader>ql";
+      mode = "n";
       action = ''function() require("persistence").load({ last = true }) end'';
       lua = true;
-      desc = "Restore Last Session";
-    };
-    "<leader>qd" = {
+      options.desc = "Restore Last Session";
+    }
+    {
+      key = "<leader>qd";
+      mode = "n";
       action = ''function() require("persistence").stop() end'';
       lua = true;
-      desc = "Don't Save Current Session";
-    };
-  };
+      options.desc = "Don't Save Current Session";
+    }
+  ];
 }

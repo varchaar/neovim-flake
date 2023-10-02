@@ -15,41 +15,52 @@
     ];
   };
 
-
-    plugins.mini = {
-      enable = true;
-      modules = {
-        bufremove = {};
-      };
-    };
-
-  maps.normal = {
-    "<s-h>" = {
-      action = "<cmd>BufferLineCyclePrev<cr>";
-      desc = "Prev Buffer";
-    };
-    "<s-l>" = {
-      action = "<cmd>BufferLineCycleNext<cr>";
-      desc = "Next Buffer";
-    };
-    "[b" = {
-      action = "<cmd>BufferLineCyclePrev<cr>";
-      desc = "Prev Buffer";
-    };
-    "]b" = {
-      action = "<cmd>BufferLineCycleNext<cr>";
-      desc = "Next Buffer";
-    };
-
-    "<leader>bd" = {
-      action = ''function() require("mini.bufremove").delete(0, false) end'';
-      lua = true;
-      desc = "Delete Buffer";
-    };
-    "<leader>bD" = {
-      action = ''function() require("mini.bufremove").delete(0, true) end'';
-      lua = true;
-      desc = "Delete Buffer (Force)";
+  plugins.mini = {
+    enable = true;
+    modules = {
+      bufremove = {};
     };
   };
+
+  keymaps = [
+    {
+      key = "<s-h>";
+      mode = "n";
+      action = "<cmd>BufferLineCyclePrev<cr>";
+      options.desc = "Prev Buffer";
+    }
+    {
+      key = "<s-l>";
+      mode = "n";
+      action = "<cmd>BufferLineCycleNext<cr>";
+      options.desc = "Next Buffer";
+    }
+    {
+      key = "[b";
+      mode = "n";
+      action = "<cmd>BufferLineCyclePrev<cr>";
+      options.desc = "Prev Buffer";
+    }
+    {
+      key = "]b";
+      mode = "n";
+      action = "<cmd>BufferLineCycleNext<cr>";
+      options.desc = "Next Buffer";
+    }
+
+    {
+      key = "<leader>bd";
+      mode = "n";
+      action = ''function() require("mini.bufremove").delete(0, false) end'';
+      lua = true;
+      options.desc = "Delete Buffer";
+    }
+    {
+      key = "<leader>bD";
+      mode = "n";
+      action = ''function() require("mini.bufremove").delete(0, true) end'';
+      lua = true;
+      options.desc = "Delete Buffer (Force)";
+    }
+  ];
 }
