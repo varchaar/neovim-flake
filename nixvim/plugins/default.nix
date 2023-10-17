@@ -5,5 +5,6 @@
     ./lsp
     ./ui
     ./util
+    ./formatting
   ];
 }
