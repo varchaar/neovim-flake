@@ -2,21 +2,10 @@
   pkgs,
   config,
   ...
-}: let
-  pokemon-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "pokemon.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "ColaMint";
-      repo = "pokemon.nvim";
-      rev = "50c618f88f1ee7cbd0e0d8194176b0d47f6f1c40";
-      sha256 = "ZTMkSe7PZYOvdUwgx6x9iruwQ/ioxTPzRFeOh4LAylM=";
-    };
-  };
-  
-in {
+}: {
   extraPlugins = [
     config.plugins.alpha.package
-    pokemon-nvim
+    pkgs.vimPlugins.pokemon-nvim
   ];
 
   extraConfigLua = ''
@@ -24,9 +13,9 @@ in {
     local pokemon = require('pokemon')
 
     math.randomseed(os.time())
-    local pokemonNumber = string.format("%04d", math.random(1, 493)) 
+    local pokemonNumber = string.format("%04d", math.random(1, 493))
     pokemon.setup({
-      number = pokemonNumber, 
+      number = pokemonNumber,
       size = 'auto',
     })
     dashboard.section.header.val = pokemon.header()
