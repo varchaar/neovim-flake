@@ -23,6 +23,38 @@
         "type": "github"
       }
     },
+    "chameleon-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695397727,
+        "narHash": "sha256-mcSlAoihyfo58vM3Z7e5BnH64YJ9B+RdeDU0Fzh4awk=",
+        "owner": "shaun-mathew",
+        "repo": "Chameleon.nvim",
+        "rev": "bc18f399a7c02b2f09d16db8eecb0ba27fc14342",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shaun-mathew",
+        "repo": "Chameleon.nvim",
+        "type": "github"
+      }
+    },
+    "conform-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697554512,
+        "narHash": "sha256-F3FYMS0ixJkSSfvTy1Jg7ihub8RBWRMdyz2Dbyu1LJ0=",
+        "owner": "stevearc",
+        "repo": "conform.nvim",
+        "rev": "2e8b826cb4af5cf36b5febc5e7a71d3284f161f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "conform.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -117,10 +149,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1693565476,
-        "narHash": "sha256-ya00zHt7YbPo3ve/wNZ/6nts61xt7wK/APa6aZAfey0=",
-        "path": "/nix/store/9rajnwbn6zh0w4ww7mw74y71dy23ssn8-source",
-        "rev": "aa8aa7e2ea35ce655297e8322dc82bf77a31d04b",
+        "lastModified": 1697059129,
+        "narHash": "sha256-9NJcFF9CEYPvHJ5ckE8kvINvI84SZZ87PvqMbH6pro0=",
+        "path": "/nix/store/xjviahzwa7x51vl51kc3c1k1n1jmhpd5-source",
+        "rev": "5e4c2ada4fcd54b99d56d7bd62f384511a7e2593",
         "type": "path"
       },
       "original": {
@@ -168,11 +200,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1696253034,
-        "narHash": "sha256-yt3tZYzoMx+NqtJLRLQYJsB/LSGEL00T+YxJnBQUQr0=",
+        "lastModified": 1697534983,
+        "narHash": "sha256-BRFBhLehpdoxtaRpPUzwSpZuVMjcmbhozhMNbeoDslk=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "05b77732e3babaa95d73cbffca83029784a64cdd",
+        "rev": "465d09849a600f90e55f8a0f898fd11c2e292207",
         "type": "github"
       },
       "original": {
@@ -208,6 +240,22 @@
         "type": "github"
       }
     },
+    "pokemon-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686187008,
+        "narHash": "sha256-ZTMkSe7PZYOvdUwgx6x9iruwQ/ioxTPzRFeOh4LAylM=",
+        "owner": "ColaMint",
+        "repo": "pokemon.nvim",
+        "rev": "50c618f88f1ee7cbd0e0d8194176b0d47f6f1c40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ColaMint",
+        "repo": "pokemon.nvim",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -235,9 +283,12 @@
     },
     "root": {
       "inputs": {
+        "chameleon-nvim": "chameleon-nvim",
+        "conform-nvim": "conform-nvim",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "pokemon-nvim": "pokemon-nvim"
       }
     },
     "systems": {
