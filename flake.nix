@@ -6,6 +6,10 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     #vim plugins
+    conform-nvim = {
+      url = "github:stevearc/conform.nvim";
+      flake = false;
+    };
     pokemon-nvim = {
       url = "github:ColaMint/pokemon.nvim";
       flake = false;
@@ -33,6 +37,11 @@
             vimPlugins =
               super.vimPlugins
               // {
+                conform-nvim = super.vimUtils.buildVimPlugin {
+                  name = "conform-nvim";
+                  pname = "conform-nvim";
+                  src = inputs.conform-nvim;
+                };
                 pokemon-nvim = super.vimUtils.buildVimPlugin {
                   name = "pokemon-nvim";
                   pname = "pokemon-nvim";
