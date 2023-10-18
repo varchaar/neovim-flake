@@ -1,17 +1,17 @@
-{
+{ pkgs, ... }: {
   plugins = {
-    indent-blankline = {
-      enable = true;
-      filetypeExclude = [
-        "help"
-        "alpha"
-        "dashboard"
-        "neo-tree"
-        "Trouble"
-        "notify"
-        "toggleterm"
-      ];
-    };
+    # indent-blankline = {
+    #   enable = true;
+    #   filetypeExclude = [
+    #     "help"
+    #     "alpha"
+    #     "dashboard"
+    #     "neo-tree"
+    #     "Trouble"
+    #     "notify"
+    #     "toggleterm"
+    #   ];
+    # };
     mini = {
       enable = true;
       modules = {
@@ -22,6 +22,15 @@
       };
     };
   };
+
+  extraPlugins = [
+    pkgs.vimPlugins.indent-blankline-nvim
+  ];
+
+  extraConfigLua = ''
+    require("ibl").setup()
+  '';
+
   autoCmd = [
     {
       event = ["FileType"];
