@@ -15,6 +15,12 @@
         action = "find_files";
       };
     };
+    extensions = {
+      fzf-native = {
+        enable = true;
+        fuzzy = true;
+      };
+    };
     extraOptions = {
       defaults = {
         prompt_prefix = " ";
@@ -23,9 +29,9 @@
           n = {
             q = {
               __raw = ''
-              function(...)
-                return require("telescope.actions").close(...)
-              end'';
+                function(...)
+                  return require("telescope.actions").close(...)
+                end'';
             };
           };
         };
