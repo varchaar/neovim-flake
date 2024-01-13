@@ -3,7 +3,11 @@
     enable = true;
     servers = {
       vuels.enable = true;
-      rust-analyzer.enable = true;
+      rust-analyzer = {
+        enable = true;
+        installCargo = true;
+        installRustc = true;
+      };
       nil_ls.enable = true;
       tsserver.enable = true;
       eslint.enable = true;
