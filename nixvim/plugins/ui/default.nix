@@ -4,6 +4,7 @@
     ./indent-blankline.nix
     ./bufferline.nix
     ./dressing.nix
+    ./lazygit.nix
   ];
 
   plugins = {
