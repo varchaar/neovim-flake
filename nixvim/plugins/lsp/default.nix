@@ -2,7 +2,7 @@
   plugins.lsp = {
     enable = true;
     servers = {
-      vuels.enable = true;
+      volar.enable = true;
       rust-analyzer = {
         enable = true;
         installCargo = true;
