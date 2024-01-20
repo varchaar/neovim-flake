@@ -6,20 +6,20 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     #vim plugins
-    conform-nvim = {
+    plugin_conform-nvim = {
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
-    pokemon-nvim = {
+    plugin_pokemon-nvim = {
       url = "github:ColaMint/pokemon.nvim";
       flake = false;
     };
-    chameleon-nvim = {
-      url = "github:shaun-mathew/Chameleon.nvim";
+    plugin_night-owl-nvim = {
+      url = "github:oxfist/night-owl.nvim";
       flake = false;
     };
-    night-owl-nvim = {
-      url = "github:oxfist/night-owl.nvim";
+    plugin_hydrate-nvim = {
+      url = "github:stefanlogue/hydrate.nvim";
       flake = false;
     };
   };
@@ -37,31 +37,38 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          (self: super: {
-            vimPlugins =
-              super.vimPlugins
-              // {
-                conform-nvim = super.vimUtils.buildVimPlugin {
-                  name = "conform-nvim";
-                  pname = "conform-nvim";
-                  src = inputs.conform-nvim;
-                };
-                pokemon-nvim = super.vimUtils.buildVimPlugin {
-                  name = "pokemon-nvim";
-                  pname = "pokemon-nvim";
-                  src = inputs.pokemon-nvim;
-                };
-                chameleon-nvim = super.vimUtils.buildVimPlugin {
-                  name = "chameleon-nvim";
-                  pname = "chamelon-nvim";
-                  src = inputs.chameleon-nvim;
-                };
-                night-owl-nvim = super.vimUtils.buildVimPlugin {
-                  name = "night-owl-nvim";
-                  pname = "night-owl-nvim";
-                  src = inputs.night-owl-nvim;
-                };
-              };
+          (final: prev:
+          let
+            inherit (prev.vimUtils) buildVimPlugin;
+            plugins = builtins.filter
+              (s: (builtins.match "plugin_.*" s) != null)
+              (builtins.attrNames inputs);
+            plugName = input:
+              builtins.substring
+                (builtins.stringLength "plugin_")
+                (builtins.stringLength input)
+                input;
+            buildPlug = name: buildVimPlugin {
+              pname = plugName name;
+              version = "master";
+              src = builtins.getAttr name inputs;
+
+              # Tree-sitter fails for a variety of lang grammars unless using :TSUpdate
+              # For now install imperatively
+              #postPatch =
+              #  if (name == "nvim-treesitter") then ''
+              #    rm -r parser
+              #    ln -s ${treesitterGrammars} parser
+              #  '' else "";
+            };
+          in
+          {
+            neovimPlugins = builtins.listToAttrs (map
+              (plugin: {
+                name = plugName plugin;
+                value = buildPlug plugin;
+              })
+              plugins);
           })
         ];
       };

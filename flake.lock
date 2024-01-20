@@ -1,37 +1,5 @@
 {
   "nodes": {
-    "chameleon-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1704053031,
-        "narHash": "sha256-BzXo6QSs4DwjQszGCTjc8Df0tjduZ90NmXZ3qDSClSU=",
-        "owner": "shaun-mathew",
-        "repo": "Chameleon.nvim",
-        "rev": "f1ced846cdc692e9e6281afc9ed2b52b2bb46178",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shaun-mathew",
-        "repo": "Chameleon.nvim",
-        "type": "github"
-      }
-    },
-    "conform-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1704781474,
-        "narHash": "sha256-I+TfrO23cGp5Ja+id8nembFllzsbTpYLr4A8PPVARLY=",
-        "owner": "stevearc",
-        "repo": "conform.nvim",
-        "rev": "75e7c5c7eb5fbd53f8b12dc420b31ec70770b231",
-        "type": "github"
-      },
-      "original": {
-        "owner": "stevearc",
-        "repo": "conform.nvim",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -148,22 +116,6 @@
         "type": "github"
       }
     },
-    "night-owl-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1700537610,
-        "narHash": "sha256-M0buKLNKaRoKucLXPq+/tgUXNQ3/2NXVIq2eyKx9XyA=",
-        "owner": "oxfist",
-        "repo": "night-owl.nvim",
-        "rev": "5106bb2d420bb4c6867cd577f9413de039052275",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxfist",
-        "repo": "night-owl.nvim",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -236,7 +188,55 @@
         "type": "github"
       }
     },
-    "pokemon-nvim": {
+    "plugin_conform-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705377002,
+        "narHash": "sha256-AYDC4w5trrrloN9fjgRQOexUU0BnlDtdZlef9YzIOnQ=",
+        "owner": "stevearc",
+        "repo": "conform.nvim",
+        "rev": "cbc5745bf7519acaf3a5cbaaa677fd556aa813d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "conform.nvim",
+        "type": "github"
+      }
+    },
+    "plugin_hydrate-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694075314,
+        "narHash": "sha256-8k5BhvrtZHYeZA0zsjcWkzdg6SIDRhtsS2Bz4OItbAI=",
+        "owner": "stefanlogue",
+        "repo": "hydrate.nvim",
+        "rev": "8d4dfd099a358a86b359573a679174ab5c641030",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stefanlogue",
+        "repo": "hydrate.nvim",
+        "type": "github"
+      }
+    },
+    "plugin_night-owl-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700537610,
+        "narHash": "sha256-M0buKLNKaRoKucLXPq+/tgUXNQ3/2NXVIq2eyKx9XyA=",
+        "owner": "oxfist",
+        "repo": "night-owl.nvim",
+        "rev": "5106bb2d420bb4c6867cd577f9413de039052275",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxfist",
+        "repo": "night-owl.nvim",
+        "type": "github"
+      }
+    },
+    "plugin_pokemon-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1686187008,
@@ -282,13 +282,13 @@
     },
     "root": {
       "inputs": {
-        "chameleon-nvim": "chameleon-nvim",
-        "conform-nvim": "conform-nvim",
         "flake-utils": "flake-utils",
-        "night-owl-nvim": "night-owl-nvim",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "pokemon-nvim": "pokemon-nvim"
+        "plugin_conform-nvim": "plugin_conform-nvim",
+        "plugin_hydrate-nvim": "plugin_hydrate-nvim",
+        "plugin_night-owl-nvim": "plugin_night-owl-nvim",
+        "plugin_pokemon-nvim": "plugin_pokemon-nvim"
       }
     },
     "systems": {

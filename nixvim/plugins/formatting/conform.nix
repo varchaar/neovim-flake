@@ -4,7 +4,7 @@
   ...
 }: {
   extraPlugins = [
-    pkgs.vimPlugins.conform-nvim
+    pkgs.neovimPlugins.conform-nvim
   ];
 
   keymaps = [

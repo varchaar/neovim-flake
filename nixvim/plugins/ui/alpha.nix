@@ -5,7 +5,7 @@
 }: {
   extraPlugins = [
     config.plugins.alpha.package
-    pkgs.vimPlugins.pokemon-nvim
+    pkgs.neovimPlugins.pokemon-nvim
   ];
 
   extraConfigLua = ''
