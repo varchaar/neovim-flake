@@ -148,6 +148,22 @@
         "type": "github"
       }
     },
+    "night-owl-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700537610,
+        "narHash": "sha256-M0buKLNKaRoKucLXPq+/tgUXNQ3/2NXVIq2eyKx9XyA=",
+        "owner": "oxfist",
+        "repo": "night-owl.nvim",
+        "rev": "5106bb2d420bb4c6867cd577f9413de039052275",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxfist",
+        "repo": "night-owl.nvim",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -269,6 +285,7 @@
         "chameleon-nvim": "chameleon-nvim",
         "conform-nvim": "conform-nvim",
         "flake-utils": "flake-utils",
+        "night-owl-nvim": "night-owl-nvim",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "pokemon-nvim": "pokemon-nvim"

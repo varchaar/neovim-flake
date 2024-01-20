@@ -18,6 +18,10 @@
       url = "github:shaun-mathew/Chameleon.nvim";
       flake = false;
     };
+    night-owl-nvim = {
+      url = "github:oxfist/night-owl.nvim";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -51,6 +55,11 @@
                   name = "chameleon-nvim";
                   pname = "chamelon-nvim";
                   src = inputs.chameleon-nvim;
+                };
+                night-owl-nvim = super.vimUtils.buildVimPlugin {
+                  name = "night-owl-nvim";
+                  pname = "night-owl-nvim";
+                  src = inputs.night-owl-nvim;
                 };
               };
           })
