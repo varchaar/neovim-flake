@@ -100,5 +100,15 @@
         remap = true;
       };
     }
+    {
+      mode = ["n" "v"];
+      key = "<leader>ca";
+      action = "vim.lsp.buf.code_action";
+      lua = true;
+      options = {
+        desc = "Code Action";
+        remap = true;
+      };
+    }
   ];
 }
