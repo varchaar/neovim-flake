@@ -1,6 +1,7 @@
 {
   imports = [
     ./alpha.nix
+    # ./dashboard.nix
     ./indent-blankline.nix
     ./bufferline.nix
     ./dressing.nix
