@@ -38,6 +38,7 @@
             { action = "PokemonTogglePokedex",              desc = " Open Pokedex",    icon = "󰐝 ", key = "p" },
             { action = "qa",                                desc = " Quit",            icon = " ", key = "q" },
           },
+          footer = {""},
         },
       }
 
