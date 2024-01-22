@@ -3,6 +3,13 @@
     enable = true;
     servers = {
       volar.enable = true;
+      volar.extraOptions = {
+        init_options = {
+          typescript = {
+            tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib";
+          };
+        };
+      };
       rust-analyzer = {
         enable = true;
         installCargo = true;
