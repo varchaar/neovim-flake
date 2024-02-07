@@ -31,7 +31,71 @@
       '';
     };
   };
+
   extraPackages = with pkgs; [
     cargo
+  ];
+  keymaps = [
+    {
+      mode = ["n"];
+      key = "<leader>cl";
+      action = "<cmd>LspInfo<cr>";
+      options = {desc = "Lsp Info";};
+    }
+    {
+      mode = ["n"];
+      key = "gd";
+      action = "function() require(\"telescope.builtin\").lsp_definitions({ reuse_win = true }) end";
+      lua = true;
+      options = {desc = "Goto Definition";};
+    }
+    {
+      mode = ["n"];
+      key = "gr";
+      action = "<cmd>Telescope lsp_references<cr>";
+      options = {desc = "References";};
+    }
+    {
+      mode = ["n"];
+      key = "gD";
+      action = "vim.lsp.buf.declaration";
+      lua = true;
+      options = {desc = "Goto Declaration";};
+    }
+    {
+      mode = ["n"];
+      key = "gI";
+      action = "function() require(\"telescope.builtin\").lsp_implementations({ reuse_win = true }) end";
+      lua = true;
+      options = {desc = "Goto Implementation";};
+    }
+    {
+      mode = ["n"];
+      key = "gy";
+      action = "function() require(\"telescope.builtin\").lsp_type_definitions({ reuse_win = true }) end";
+      lua = true;
+      options = {desc = "Goto T[y]pe Definition";};
+    }
+    {
+      mode = ["n"];
+      key = "K";
+      action = "vim.lsp.buf.hover";
+      lua = true;
+      options = {desc = "Hover";};
+    }
+    {
+      mode = ["n"];
+      key = "gK";
+      action = "vim.lsp.buf.signature_help";
+      lua = true;
+      options = {desc = "Signature Help";};
+    }
+    {
+      mode = ["i"];
+      key = "<c-k>";
+      action = "vim.lsp.buf.signature_help";
+      lua = true;
+      options = {desc = "Signature Help";};
+    }
   ];
 }
