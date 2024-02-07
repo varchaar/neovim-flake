@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./trouble.nix
+  ];
+
   plugins.lsp = {
     enable = true;
     servers = {
