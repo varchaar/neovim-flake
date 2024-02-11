@@ -7,6 +7,12 @@
     pkgs.neovimPlugins.conform-nvim
   ];
 
+  extraPackages = with pkgs; [
+    stylua
+    alejandra
+    prettierd
+  ];
+
   keymaps = [
     {
       mode = "n";
