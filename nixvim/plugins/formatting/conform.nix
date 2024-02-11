@@ -16,10 +16,14 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>e";
-      action = "<cmd>Neotree toggle<cr>";
+      key = "<leader>cf";
+      action = ''
+        function ()
+          require("conform").format()
+        end'';
+      lua = true;
       options = {
-        desc = "Toggle Explorer";
+        desc = "Format";
       };
     }
   ];
