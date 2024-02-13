@@ -32,9 +32,12 @@
     };
   };
 
+  plugins.inc-rename.enable = true;
+
   extraPackages = with pkgs; [
     cargo
   ];
+
   keymaps = [
     {
       mode = ["n"];
@@ -96,6 +99,20 @@
       action = "vim.lsp.buf.signature_help";
       lua = true;
       options = {desc = "Signature Help";};
+    }
+    {
+      mode = ["n"];
+      key = "<leader>cr";
+      action = ''
+        function()
+          local inc_rename = require("inc_rename")
+          return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
+        end'';
+      lua = true;
+      options = {
+        desc = "Rename Symbol";
+        expr = true;
+      };
     }
   ];
 }
