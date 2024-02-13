@@ -11,6 +11,7 @@
     stylua
     alejandra
     prettierd
+    rustfmt
   ];
 
   keymaps = [
@@ -35,7 +36,10 @@
         nix = { "alejandra" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
         vue = { { "prettierd", "prettier" } },
+        rust = { "rustfmt" },
       },
     })
 
