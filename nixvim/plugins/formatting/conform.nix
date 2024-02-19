@@ -18,7 +18,7 @@
     {
       mode = "n";
       key = "<leader>cf";
-      action = ''
+      action = /* lua */ ''
         function ()
           require("conform").format()
         end'';
@@ -29,7 +29,7 @@
     }
   ];
 
-  extraConfigLua = ''
+  extraConfigLua = /* lua */ ''
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },

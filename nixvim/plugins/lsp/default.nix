@@ -34,6 +34,8 @@
 
   plugins.inc-rename.enable = true;
 
+  plugins.hmts.enable = true;
+
   extraPackages = with pkgs; [
     cargo
   ];
