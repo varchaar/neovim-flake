@@ -1,6 +1,7 @@
 {
   imports = [
     ./telescope.nix
+    ./gitsigns.nix
   ];
 
   plugins = {
