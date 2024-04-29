@@ -1,16 +1,16 @@
 {
   plugins.gitsigns = {
     enable = true;
-    signs = {
-      add = {text = "▎";};
-      change = {text = "▎";};
-      delete = {text = "";};
-      topdelete = {text = "";};
-      changedelete = {text = "▎";};
-      untracked = {text = "▎";};
-    };
-    onAttach = {
-      function = ''
+    settings = {
+      signs = {
+        add = {text = "▎";};
+        change = {text = "▎";};
+        delete = {text = "";};
+        topdelete = {text = "";};
+        changedelete = {text = "▎";};
+        untracked = {text = "▎";};
+      };
+      on_attach = ''
         function(buffer)
           local gs = package.loaded.gitsigns
 

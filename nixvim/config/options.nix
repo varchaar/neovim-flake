@@ -1,7 +1,7 @@
 {
   # Stolen from Lazyvim
   config = {
-    options = {
+    opts = {
       autowrite = true; # Enable auto write
       completeopt = "menu,menuone,noselect";
       conceallevel = 3; # Hide * markup for bold and italic

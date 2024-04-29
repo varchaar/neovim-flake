@@ -3,25 +3,25 @@
     enable = true;
     keymaps = {
       "<leader>/" = {
-        desc = "Grep (root dir)";
+        options.desc = "Grep (root dir)";
         action = "live_grep";
       };
       "<leader>ff" = {
-        desc = "Find Files (root dir)";
+        options.desc = "Find Files (root dir)";
         action = "find_files";
       };
       "<leader><space>" = {
-        desc = "Find Files (root dir)";
+        options.desc = "Find Files (root dir)";
         action = "find_files";
       };
     };
     extensions = {
       fzf-native = {
         enable = true;
-        fuzzy = true;
+        settings.fuzzy = true;
       };
     };
-    extraOptions = {
+    settings = {
       defaults = {
         prompt_prefix = " ";
         selection_caret = " ";

@@ -2,7 +2,7 @@
   plugins = {
     indent-blankline = {
       enable = true;
-      exclude = {
+      settings.exclude = {
         filetypes = [
           "help"
           "alpha"
