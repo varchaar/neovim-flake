@@ -1,4 +1,4 @@
-{
+{helpers, ...}: {
   plugins.bufferline = {
     enable = true;
     alwaysShowBufferline = false;
@@ -51,15 +51,27 @@
     {
       key = "<leader>bd";
       mode = "n";
-      action = ''function() require("mini.bufremove").delete(0, false) end'';
-      lua = true;
+      action =
+        helpers.mkRaw
+        /*
+        lua
+        */
+        ''
+          function() require("mini.bufremove").delete(0, false) end
+        '';
       options.desc = "Delete Buffer";
     }
     {
       key = "<leader>bD";
       mode = "n";
-      action = ''function() require("mini.bufremove").delete(0, true) end'';
-      lua = true;
+      action =
+        helpers.mkRaw
+        /*
+        lua
+        */
+        ''
+          function() require("mini.bufremove").delete(0, true) end
+        '';
       options.desc = "Delete Buffer (Force)";
     }
 

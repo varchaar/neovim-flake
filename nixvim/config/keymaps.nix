@@ -1,4 +1,4 @@
-{
+{helpers, ...}: {
   globals.mapleader = " ";
   keymaps = [
     {
@@ -103,8 +103,12 @@
     {
       mode = ["n" "v"];
       key = "<leader>ca";
-      action = "vim.lsp.buf.code_action";
-      lua = true;
+      action =
+        helpers.mkRaw
+        /*
+        lua
+        */
+        ''vim.lsp.buf.code_action'';
       options = {
         desc = "Code Action";
         remap = true;
