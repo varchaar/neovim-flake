@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, helpers, ...}: {
   imports = [
     ./trouble.nix
   ];
@@ -19,7 +19,7 @@
         installCargo = true;
         installRustc = true;
       };
-      nil_ls.enable = true;
+      nil-ls.enable = true;
       tsserver.enable = true;
       eslint.enable = true;
       eslint.onAttach.function = ''
@@ -50,8 +50,7 @@
     {
       mode = ["n"];
       key = "gd";
-      action = "function() require(\"telescope.builtin\").lsp_definitions({ reuse_win = true }) end";
-      lua = true;
+      action = helpers.mkRaw /*lua*/ "function() require(\"telescope.builtin\").lsp_definitions({ reuse_win = true }) end";
       options = {desc = "Goto Definition";};
     }
     {
@@ -63,54 +62,47 @@
     {
       mode = ["n"];
       key = "gD";
-      action = "vim.lsp.buf.declaration";
-      lua = true;
+      action = helpers.mkRaw /*lua*/ "vim.lsp.buf.declaration";
       options = {desc = "Goto Declaration";};
     }
     {
       mode = ["n"];
       key = "gI";
-      action = "function() require(\"telescope.builtin\").lsp_implementations({ reuse_win = true }) end";
-      lua = true;
+      action = helpers.mkRaw /*lua*/ "function() require(\"telescope.builtin\").lsp_implementations({ reuse_win = true }) end";
       options = {desc = "Goto Implementation";};
     }
     {
       mode = ["n"];
       key = "gy";
-      action = "function() require(\"telescope.builtin\").lsp_type_definitions({ reuse_win = true }) end";
-      lua = true;
+      action = helpers.mkRaw /*lua*/ "function() require(\"telescope.builtin\").lsp_type_definitions({ reuse_win = true }) end";
       options = {desc = "Goto T[y]pe Definition";};
     }
     {
       mode = ["n"];
       key = "K";
-      action = "vim.lsp.buf.hover";
-      lua = true;
+      action = helpers.mkRaw /*lua*/ "vim.lsp.buf.hover";
       options = {desc = "Hover";};
     }
     {
       mode = ["n"];
       key = "gK";
-      action = "vim.lsp.buf.signature_help";
-      lua = true;
+      action = helpers.mkRaw /*lua*/ "vim.lsp.buf.signature_help";
       options = {desc = "Signature Help";};
     }
     {
       mode = ["i"];
       key = "<c-k>";
-      action = "vim.lsp.buf.signature_help";
-      lua = true;
+      action = helpers.mkRaw /*lua*/ "vim.lsp.buf.signature_help";
       options = {desc = "Signature Help";};
     }
     {
       mode = ["n"];
       key = "<leader>cr";
-      action = ''
+      action = helpers.mkRaw /*lua*/ ''
         function()
           local inc_rename = require("inc_rename")
           return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
         end'';
-      lua = true;
       options = {
         desc = "Rename Symbol";
         expr = true;
