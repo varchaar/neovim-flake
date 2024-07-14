@@ -15,6 +15,8 @@
         {
           filter = {
             event = "msg_show";
+            kind = "";
+            find = "written";
             any = [
               {find = "%d+L, %d+B";}
               {find = "; after #%d+";}
@@ -22,6 +24,9 @@
             ];
           };
           view = "mini";
+          opts = {
+            skip = true;
+          };
         }
       ];
       presets = {
