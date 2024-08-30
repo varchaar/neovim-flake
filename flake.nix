@@ -1,94 +1,66 @@
 {
-  description = "A nixvim configuration";
+  description = "Setup LazyVim using NixVim";
 
   inputs = {
-    nixvim.url = "github:nix-community/nixvim";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    #vim plugins
-    plugin_conform-nvim = {
-      url = "github:stevearc/conform.nvim";
-      flake = false;
-    };
-    plugin_pokemon-nvim = {
-      url = "github:ColaMint/pokemon.nvim";
-      flake = false;
-    };
-    plugin_night-owl-nvim = {
-      url = "github:oxfist/night-owl.nvim";
-      flake = false;
-    };
-    plugin_hydrate-nvim = {
-      url = "github:stefanlogue/hydrate.nvim";
-      flake = false;
-    };
+    # Plugins not available in nixpkgs
+    huez-nvim = { url = "github:vague2k/huez.nvim"; flake = false; };
+    blame-me-nvim = { url = "github:hougesen/blame-me.nvim"; flake = false; };
+    cmake-tools-nvim = { url = "github:Civitasv/cmake-tools.nvim"; flake = false; };
+    cmake-gtest-nvim = { url = "github:hfn92/cmake-gtest.nvim"; flake = false; };
   };
 
-  outputs = {
-    nixpkgs,
-    nixvim,
-    flake-utils,
-    ...
-  } @ inputs: let
-    config = import ./nixvim; # import the module directly
-  in
-    flake-utils.lib.eachDefaultSystem (system: let
-      nixvimLib = nixvim.lib.${system};
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          (final: prev:
-          let
-            inherit (prev.vimUtils) buildVimPlugin;
-            plugins = builtins.filter
-              (s: (builtins.match "plugin_.*" s) != null)
-              (builtins.attrNames inputs);
-            plugName = input:
-              builtins.substring
-                (builtins.stringLength "plugin_")
-                (builtins.stringLength input)
-                input;
-            buildPlug = name: buildVimPlugin {
-              pname = plugName name;
-              version = "master";
-              src = builtins.getAttr name inputs;
+  outputs = { self, nixpkgs, flake-parts, ... } @ inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
-              # Tree-sitter fails for a variety of lang grammars unless using :TSUpdate
-              # For now install imperatively
-              #postPatch =
-              #  if (name == "nvim-treesitter") then ''
-              #    rm -r parser
-              #    ln -s ${treesitterGrammars} parser
-              #  '' else "";
+      perSystem = { pkgs, lib, system, ... }:
+        let
+          # Derivation containing all plugins
+          pluginPath = import ./plugins.nix { inherit pkgs lib inputs; };
+
+          # Derivation containing all runtime dependencies
+          runtimePath = import ./runtime.nix { inherit pkgs; };
+
+          # Link together all treesitter grammars into single derivation
+          treesitterPath = pkgs.symlinkJoin {
+            name = "lazyvim-nix-treesitter-parsers";
+            paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
+          };
+
+          # Use nightly neovim only ;)
+          neovimNightly = inputs.neovim-nightly-overlay.packages.${system}.default;
+          # Wrap neovim with custom init and plugins
+          neovimWrapped = pkgs.wrapNeovim neovimNightly {
+            configure = {
+              customRC = /* vim */ ''
+                " Populate paths to neovim
+                let g:config_path = "${./config}"
+                let g:plugin_path = "${pluginPath}"
+                let g:runtime_path = "${runtimePath}"
+                let g:treesitter_path = "${treesitterPath}"
+                " Begin initialization
+                source ${./config/init.lua}
+              '';
+              packages.all.start = [ pkgs.vimPlugins.lazy-nvim ];
             };
-          in
-          {
-            neovimPlugins = builtins.listToAttrs (map
-              (plugin: {
-                name = plugName plugin;
-                value = buildPlug plugin;
-              })
-              plugins);
-          })
-        ];
-      };
-      nixvim' = nixvim.legacyPackages.${system};
-      nvim = nixvim'.makeNixvimWithModule {
-        inherit pkgs;
-        module = config;
-      };
-    in {
-      checks = {
-        # Run `nix flake check .` to verify that your config is not broken
-        default = nixvimLib.check.mkTestDerivationFromNvim {
-          inherit nvim;
-          name = "A nixvim configuration";
+          };
+        in
+        {
+          packages = rec {
+            # Wrap neovim again to make runtime dependencies available
+            nvim = pkgs.writeShellApplication {
+              name = "nvim";
+              runtimeInputs = [ runtimePath ];
+              text = ''${neovimWrapped}/bin/nvim "$@"'';
+            };
+            default = nvim;
+          };
         };
-      };
-
-      packages = {
-        # Lets you run `nix run .` to start nixvim
-        default = nvim;
-      };
-    });
+    };
 }
