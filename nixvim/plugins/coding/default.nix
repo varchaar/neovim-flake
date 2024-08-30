@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./cmp.nix
   ];
@@ -8,23 +8,23 @@
   ];
 
   plugins = {
-    luasnip = {
-      enable = true;
-      fromVscode = [
-        {
-          lazyLoad = true;
-        }
-        {
-          lazyLoad = true;
-          paths = [
-            ./snippets
-          ];
-        }
-      ];
-    };
+    #     luasnip = {
+    #       enable = true;
+    #       fromVscode = [
+    #         {
+    #           lazyLoad = true;
+    #         }
+    #         {
+    #           lazyLoad = true;
+    #           paths = [
+    #             "./snippets"
+    #           ];
+    #         }
+    #       ];
+    #     };
     mini = {
       modules = {
-        pairs = {};
+        pairs = { };
         surround = {
           mappings = {
             add = "gza"; # Add surrounding in Normal and Visual modes
@@ -39,8 +39,4 @@
       };
     };
   };
-
-  extraConfigLuaPre = ''
-    luasnip = require'luasnip'
-  '';
 }
