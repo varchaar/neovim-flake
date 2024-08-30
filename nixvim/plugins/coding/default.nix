@@ -8,20 +8,20 @@
   ];
 
   plugins = {
-    luasnip = {
-      enable = true;
-      fromVscode = [
-        {
-          lazyLoad = true;
-        }
-        {
-          lazyLoad = true;
-          paths = [
-            ./snippets
-          ];
-        }
-      ];
-    };
+#     luasnip = {
+#       enable = true;
+#       fromVscode = [
+#         {
+#           lazyLoad = true;
+#         }
+#         {
+#           lazyLoad = true;
+#           paths = [
+#             "./snippets"
+#           ];
+#         }
+#       ];
+#     };
     mini = {
       modules = {
         pairs = {};

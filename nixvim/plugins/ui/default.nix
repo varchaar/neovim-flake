@@ -47,23 +47,25 @@
     };
     which-key = {
       enable = true;
-      plugins = {
-        spelling = {
-          enabled = true;
+      settings = {
+        plugins = {
+          spelling = {
+            enabled = true;
+          };
         };
-      };
-      registrations = {
-        "<leader><tab>" = "+tabs";
-        "<leader>b" = "+buffer";
-        "<leader>c" = "+code";
-        "<leader>f" = "+file/find";
-        "<leader>g" = "+git";
-        "<leader>gh" = "+hunks";
-        "<leader>q" = "+quit/session";
-        "<leader>s" = "+search";
-        "<leader>u" = "+ui";
-        "<leader>w" = "+windows";
-        "<leader>x" = "+diagnostics/quickfix";
+        spec = [{
+          "<leader><tab>" = "+tabs";
+          "<leader>b" = "+buffer";
+          "<leader>c" = "+code";
+          "<leader>f" = "+file/find";
+          "<leader>g" = "+git";
+          "<leader>gh" = "+hunks";
+          "<leader>q" = "+quit/session";
+          "<leader>s" = "+search";
+          "<leader>u" = "+ui";
+          "<leader>w" = "+windows";
+          "<leader>x" = "+diagnostics/quickfix";
+        }];
       };
 
       # defaults = {
