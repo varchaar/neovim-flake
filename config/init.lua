@@ -9,6 +9,9 @@ require("lazy").setup({
   },
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.rust" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     -- The following configs are needed for fixing lazyvim on nix
     -- force enable telescope-fzf-native.nvim
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
@@ -21,17 +24,21 @@ require("lazy").setup({
     -- put this line at the end of spec to clear ensure_installed
     {
       "nvim-treesitter/nvim-treesitter",
-       init = function(plugin)
-          -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-          -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-          -- no longer trigger the **nvim-treesitter** module to be loaded in time.
-          -- Luckily, the only things that those plugins need are the custom queries, which we make available
-          -- during startup.
-          require("lazy.core.loader").add_to_rtp(plugin)
-          require("nvim-treesitter.query_predicates")
-        end,
-        opts_extend = {},
-        opts = { auto_install = false, ensure_installed = {}, parser_install_dir = "~/.local/share/nvim/treesitter/parser" },
+      init = function(plugin)
+        -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
+        -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
+        -- no longer trigger the **nvim-treesitter** module to be loaded in time.
+        -- Luckily, the only things that those plugins need are the custom queries, which we make available
+        -- during startup.
+        require("lazy.core.loader").add_to_rtp(plugin)
+        require("nvim-treesitter.query_predicates")
+      end,
+      opts_extend = {},
+      opts = {
+        auto_install = false,
+        ensure_installed = {},
+        parser_install_dir = "~/.local/share/nvim/treesitter/parser",
+      },
     },
   },
   performance = {

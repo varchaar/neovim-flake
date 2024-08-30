@@ -16,11 +16,22 @@ pkgs.symlinkJoin {
     # LSP's
     (make-lazy "nil" "nil")
     (make-lazy "taplo" "taplo")
-    (make-lazy "rust-analyzer" "rust-analyzer")
     (make-lazy "marksman" "marksman")
     (make-lazy "neocmakelsp" "neocmakelsp")
     (make-lazy "yaml-language-server" "yaml-language-server")
     (make-lazy "lua-language-server" "lua-language-server")
+    (make-lazy "vue-language-server" "vue-language-server")
+
+    ## Rust
+    (make-lazy "rust-analyzer" "rust-analyzer")
+    (make-lazy "codelldb" "codelldb")
+
+    ##  Go  
+    (make-lazy "gotools" "goimports")
+    (make-lazy "gomodifytags" "gomodifytags")
+    (make-lazy "gofumpt" "gofumpt")
+    (make-lazy "impl" "impl")
+    (make-lazy "delve" "delve")
 
     # Debuggers
 

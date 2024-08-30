@@ -27,14 +27,13 @@ let
     friendly-snippets
     nvim-snippets
     gitsigns-nvim
-    headlines-nvim
+    markdown-nvim
     indent-blankline-nvim
     kanagawa-nvim
     lualine-nvim
     marks-nvim
     neo-tree-nvim
     neoconf-nvim
-    neodev-nvim
     neorg
     nix-develop-nvim
     noice-nvim
@@ -75,6 +74,7 @@ let
     bufferline-nvim
     dashboard-nvim
     lazydev-nvim
+    grug-far-nvim
     { name = "LuaSnip"; path = luasnip; }
     { name = "blame-me.nvim"; path = blame-me-nvim; }
     { name = "catppuccin"; path = catppuccin-nvim; }
