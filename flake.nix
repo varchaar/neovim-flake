@@ -11,8 +11,7 @@
     # Plugins not available in nixpkgs
     huez-nvim = { url = "github:vague2k/huez.nvim"; flake = false; };
     blame-me-nvim = { url = "github:hougesen/blame-me.nvim"; flake = false; };
-    cmake-tools-nvim = { url = "github:Civitasv/cmake-tools.nvim"; flake = false; };
-    cmake-gtest-nvim = { url = "github:hfn92/cmake-gtest.nvim"; flake = false; };
+    pokemon-nvim = { url = "github:ColaMint/pokemon.nvim"; flake = false; };
   };
 
   outputs = { self, nixpkgs, flake-parts, ... } @ inputs:

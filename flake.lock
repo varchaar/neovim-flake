@@ -16,38 +16,6 @@
         "type": "github"
       }
     },
-    "cmake-gtest-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1719856888,
-        "narHash": "sha256-1Jg8mP5RsHEoYyP5XQ2p4VvMRdVcacnEll8cJ+96wgw=",
-        "owner": "hfn92",
-        "repo": "cmake-gtest.nvim",
-        "rev": "b61b88c39f87c51bd526e091fc0774a69a77a294",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hfn92",
-        "repo": "cmake-gtest.nvim",
-        "type": "github"
-      }
-    },
-    "cmake-tools-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1719330804,
-        "narHash": "sha256-VRuryIGCV6W+WYX98wmtbAIROT4abtTFEgV9vY+mnok=",
-        "owner": "Civitasv",
-        "repo": "cmake-tools.nvim",
-        "rev": "4be3c229fe932043fd83ad52fdf0ba9af7297789",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Civitasv",
-        "repo": "cmake-tools.nvim",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -286,15 +254,30 @@
         "type": "github"
       }
     },
+    "pokemon-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686187008,
+        "narHash": "sha256-ZTMkSe7PZYOvdUwgx6x9iruwQ/ioxTPzRFeOh4LAylM=",
+        "owner": "ColaMint",
+        "repo": "pokemon.nvim",
+        "rev": "50c618f88f1ee7cbd0e0d8194176b0d47f6f1c40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ColaMint",
+        "repo": "pokemon.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "blame-me-nvim": "blame-me-nvim",
-        "cmake-gtest-nvim": "cmake-gtest-nvim",
-        "cmake-tools-nvim": "cmake-tools-nvim",
         "flake-parts": "flake-parts",
         "huez-nvim": "huez-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pokemon-nvim": "pokemon-nvim"
       }
     }
   },
