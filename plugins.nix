@@ -72,9 +72,10 @@ let
     vscode-nvim
     which-key-nvim
     bufferline-nvim
-    dashboard-nvim
+    alpha-nvim
     lazydev-nvim
     grug-far-nvim
+    git-blame-nvim
     { name = "LuaSnip"; path = luasnip; }
     { name = "blame-me.nvim"; path = blame-me-nvim; }
     { name = "catppuccin"; path = catppuccin-nvim; }
