@@ -2,11 +2,6 @@ return {
   -- depends on the typescript extra
   { import = "lazyvim.plugins.extras.lang.typescript" },
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "vue" } },
-  },
-
   -- Add LSP servers
   {
     "neovim/nvim-lspconfig",
@@ -32,8 +27,7 @@ return {
       LazyVim.extend(opts.servers.vtsls, "settings.vtsls.tsserver.globalPlugins", {
         {
           name = "@vue/typescript-plugin",
-          location = vim.env.VUE_LANGUAGE_SERVER_PATH
-            .. "lib/node_modules/@vue/language-server/node_modules/@vue/typescript_plugin",
+          location = vim.env.VUE_LANGUAGE_SERVER_PATH .. "/lib/node_modules/@vue/language-server",
           languages = { "vue" },
           configNamespace = "typescript",
           enableForWorkspaceTypeScriptVersions = true,
