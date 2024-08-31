@@ -9,7 +9,6 @@ require("lazy").setup({
   },
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.go" },
     -- The following configs are needed for fixing lazyvim on nix

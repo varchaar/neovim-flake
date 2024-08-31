@@ -18,7 +18,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
-      perSystem = { pkgs, lib, system, ... }:
+      perSystem = { pkgs, lib, system, config, ... }:
         let
           # Derivation containing all plugins
           pluginPath = import ./plugins.nix { inherit pkgs lib inputs; };
@@ -51,15 +51,18 @@
           };
         in
         {
-          packages = rec {
-            # Wrap neovim again to make runtime dependencies available
-            nvim = pkgs.writeShellApplication {
-              name = "nvim";
-              runtimeInputs = [ runtimePath ];
-              text = ''${neovimWrapped}/bin/nvim "$@"'';
+          packages =
+            rec {
+              vtsls = pkgs.callPackage ./pkgs/vtsls { };
+              # Wrap neovim again to make runtime dependencies available
+              nvim = pkgs.writeShellApplication {
+                name = "nvim";
+                runtimeInputs = [ runtimePath ];
+                text = ''export VUE_LANGUAGE_SERVER_PATH="${pkgs.vue-language-server}";
+              exec ${neovimWrapped}/bin/nvim "$@"'';
+              };
+              default = nvim;
             };
-            default = nvim;
-          };
         };
     };
 }

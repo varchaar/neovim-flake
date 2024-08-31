@@ -3,6 +3,7 @@ let
   make-lazy = pkg: bin: pkgs.writeShellScriptBin "${bin}" ''
     nix shell nixpkgs#${pkg} --command ${bin} "$@"
   '';
+  vtsls = pkgs.callPackage ./pkgs/vtsls { };
 in
 # Link together all runtime dependencies into one derivation
 pkgs.symlinkJoin {
@@ -21,6 +22,7 @@ pkgs.symlinkJoin {
     (make-lazy "yaml-language-server" "yaml-language-server")
     (make-lazy "lua-language-server" "lua-language-server")
     (make-lazy "vue-language-server" "vue-language-server")
+    vtsls
 
     ## Rust
     (make-lazy "rust-analyzer" "rust-analyzer")
