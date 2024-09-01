@@ -26,6 +26,9 @@ pkgs.symlinkJoin {
 
     ## Rust
     (make-lazy "rust-analyzer" "rust-analyzer")
+    (make-lazy "rustc" "rustc")
+    (make-lazy "rustfmt" "rustfmt")
+    (make-lazy "cargo" "cargo")
     (make-lazy "codelldb" "codelldb")
 
     ##  Go  

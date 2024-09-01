@@ -61,6 +61,7 @@ let
     project-nvim
     rust-tools-nvim
     sqlite-lua
+    rustaceanvim
     telescope-fzf-native-nvim
     telescope-nvim
     tmux-navigator
