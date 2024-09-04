@@ -3,6 +3,15 @@ let
   make-lazy = pkg: bin: pkgs.writeShellScriptBin "${bin}" ''
     nix shell nixpkgs#${pkg} --command ${bin} "$@"
   '';
+
+  clangd = pkgs.writeShellScriptBin "clangd" ''
+    if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
+      /opt/vector-clang-tidy/bin/clangd "$@"
+    else
+      nix shell nixpkgs#clang-tools_16 --command clangd "$@"
+    fi
+  '';
+
   vtsls = pkgs.callPackage ./pkgs/vtsls { };
 in
 # Link together all runtime dependencies into one derivation
@@ -15,6 +24,7 @@ pkgs.symlinkJoin {
     fd
 
     # LSP's
+    clangd
     (make-lazy "nil" "nil")
     (make-lazy "taplo" "taplo")
     (make-lazy "marksman" "marksman")
