@@ -12,7 +12,7 @@
     huez-nvim = { url = "github:vague2k/huez.nvim"; flake = false; };
     blame-me-nvim = { url = "github:hougesen/blame-me.nvim"; flake = false; };
     pokemon-nvim = { url = "github:ColaMint/pokemon.nvim"; flake = false; };
-    chameleon-nvim = { url = "git+ssh://git@github.com/varchaar/chameleon.nvim"; flake = false; };
+    chameleon-nvim = { url = "github:varchaar/chameleon.nvim"; flake = false; };
   };
 
   outputs = { self, nixpkgs, flake-parts, ... } @ inputs:
