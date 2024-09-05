@@ -4,6 +4,7 @@ let
   huez-nvim = pkgs.vimUtils.buildVimPlugin { name = "huez.nvim"; src = inputs.huez-nvim; };
   blame-me-nvim = pkgs.vimUtils.buildVimPlugin { name = "blame-me.nvim"; src = inputs.blame-me-nvim; };
   pokemon-nvim = pkgs.vimUtils.buildVimPlugin { name = "pokemon.nvim"; src = inputs.pokemon-nvim; };
+  chameleon-nvim = pkgs.vimUtils.buildVimPlugin { name = "chameleon.nvim"; src = inputs.chameleon-nvim; };
 
   mkEntryFromDrv = drv:
     if lib.isDerivation drv then
@@ -82,6 +83,7 @@ let
     { name = "catppuccin"; path = catppuccin-nvim; }
     { name = "huez.nvim"; path = huez-nvim; }
     { name = "pokemon.nvim"; path = pokemon-nvim; }
+    { name = "chameleon.nvim"; path = chameleon-nvim; }
     { name = "mini.ai"; path = mini-nvim; }
     { name = "mini.bufremove"; path = mini-nvim; }
     { name = "mini.comment"; path = mini-nvim; }

@@ -4,6 +4,13 @@ return {
   { "folke/tokyonight.nvim", priority = 1000, event = "VeryLazy" },
   { "Mofiqul/vscode.nvim", priority = 1000, event = "VeryLazy" },
   {
+    "varchaar/chameleon.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chameleon").setup("0.8", "5")
+    end,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
@@ -49,12 +56,13 @@ return {
   },
   {
     "LazyVim/LazyVim",
-    dependencies = "vague2k/huez.nvim",
+    dependencies = { "vague2k/huez.nvim", "varchaar/chameleon.nvim" },
     opts = {
       news = { lazyvim = false },
       colorscheme = function()
         local colorscheme = require("huez-manager.api.colorscheme").get()
         vim.cmd("colorscheme " .. colorscheme)
+        require("chameleon").apply()
       end,
     },
   },

@@ -30,6 +30,7 @@ return {
     event = "VimEnter",
     dependencies = {
       "ColaMint/pokemon.nvim",
+      "varchaar/chameleon.nvim",
     },
     enabled = true,
     init = false,
@@ -53,7 +54,7 @@ return {
         dashboard.button("c", " " .. " Config",          LazyVim.pick.config_files()),
         dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
         dashboard.button("p", "󰐝 " .. " Pokédex",         [[<cmd> PokemonTogglePokedex <cr>]]),
-        dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
+        dashboard.button("q", " " .. " Quit",            [[<cmd> lua require("chameleon").restore() <cr><cmd> qa <cr>]]),
       }
       for _, button in ipairs(dashboard.section.buttons.val) do
         button.opts.hl = "AlphaButtons"
