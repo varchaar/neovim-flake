@@ -34,9 +34,9 @@
           };
 
           # Use nightly neovim only ;)
-          neovimNightly = inputs.neovim-nightly-overlay.packages.${system}.default;
+          # neovimNightly = inputs.neovim-nightly-overlay.packages.${system}.default;
           # Wrap neovim with custom init and plugins
-          neovimWrapped = pkgs.wrapNeovim neovimNightly {
+          neovimWrapped = pkgs.wrapNeovim pkgs.neovim-unwrapped {
             configure = {
               customRC = /* vim */ ''
                 " Populate paths to neovim

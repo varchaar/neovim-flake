@@ -21,15 +21,15 @@
       "locked": {
         "lastModified": 1725532772,
         "narHash": "sha256-VjHyOM788FQhKwCHk3nmqRqxVvPFn2pjVLgjVfQOJ3E=",
-        "ref": "refs/heads/main",
+        "owner": "varchaar",
+        "repo": "chameleon.nvim",
         "rev": "dd907471946bc7bf0c6b2364b67c6aa47a533f82",
-        "revCount": 24,
-        "type": "git",
-        "url": "ssh://git@github.com/varchaar/chameleon.nvim"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/varchaar/chameleon.nvim"
+        "owner": "varchaar",
+        "repo": "chameleon.nvim",
+        "type": "github"
       }
     },
     "flake-compat": {
