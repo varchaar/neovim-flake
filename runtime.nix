@@ -42,6 +42,7 @@ pkgs.symlinkJoin {
     (make-lazy "codelldb" "codelldb")
 
     ##  Go  
+    (make-lazy "gopls" "gopls")
     (make-lazy "gotools" "goimports")
     (make-lazy "gomodifytags" "gomodifytags")
     (make-lazy "gofumpt" "gofumpt")
