@@ -20,6 +20,14 @@ require("lazy").setup({
     { "jaybaby/mason-nvim-dap.nvim", enabled = false },
     -- uncomment to import/override with your plugins
     { import = "plugins" },
+    -- {
+    --   "nvim-treesitter/nvim-treesitter",
+    --   init = function()
+    --     -- Put treesitter path as first entry in rtp
+    --     vim.opt.rtp:prepend(vim.g.treesitter_path)
+    --   end,
+    --   opts = { auto_install = false, ensure_installed = {} },
+    -- },
     -- put this line at the end of spec to clear ensure_installed
     {
       "nvim-treesitter/nvim-treesitter",
@@ -29,6 +37,7 @@ require("lazy").setup({
         -- no longer trigger the **nvim-treesitter** module to be loaded in time.
         -- Luckily, the only things that those plugins need are the custom queries, which we make available
         -- during startup.
+        vim.opt.rtp:prepend(vim.g.treesitter_path)
         require("lazy.core.loader").add_to_rtp(plugin)
         require("nvim-treesitter.query_predicates")
       end,
@@ -36,7 +45,7 @@ require("lazy").setup({
       opts = {
         auto_install = false,
         ensure_installed = {},
-        parser_install_dir = "~/.local/share/nvim/treesitter/parser",
+        parser_install_dir = vim.g.treesitter_path .. "/parsers",
       },
     },
   },
