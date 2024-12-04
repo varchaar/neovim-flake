@@ -25,6 +25,7 @@ pkgs.symlinkJoin {
 
     # LSP's
     clangd
+    (make-lazy "cmake-format" "cmake-lint")
     (make-lazy "nil" "nil")
     (make-lazy "taplo" "taplo")
     (make-lazy "marksman" "marksman")

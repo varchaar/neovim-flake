@@ -12,6 +12,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
+    { import = "lazyvim.plugins.extras.lang.clangd" },
+    { import = "lazyvim.plugins.extras.lang.cmake" },
     -- The following configs are needed for fixing lazyvim on nix
     -- force enable telescope-fzf-native.nvim
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },

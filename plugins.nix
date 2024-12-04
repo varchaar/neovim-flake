@@ -14,8 +14,10 @@ let
 
   plugins = with pkgs.vimPlugins; [
     LazyVim
+    snacks-nvim
     better-escape-nvim
     clangd_extensions-nvim
+    cmake-tools-nvim
     cmp-buffer
     cmp-nvim-lsp
     cmp-path
