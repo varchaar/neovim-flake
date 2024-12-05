@@ -54,7 +54,10 @@ return {
             { icon = "󰐝 ", key = "p", desc = "Pokédex", action = ":PokemonTogglePokedex" },
             -- { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
             -- { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+            { icon = " ", key = "q", desc = "Quit", action = function ()
+              require("chameleon").restore()
+              vim.api.nvim_command(":qa")
+            end },
           },
           },
         },
