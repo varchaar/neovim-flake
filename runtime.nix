@@ -50,6 +50,9 @@ pkgs.symlinkJoin {
     (make-lazy "impl" "impl")
     (make-lazy "delve" "delve")
 
+    ## Javascript
+    (make-lazy "nodePackages.prettier" "prettier")
+
     # Debuggers
 
     # Formatters
