@@ -87,6 +87,7 @@ let
     { name = "pokemon.nvim"; path = pokemon-nvim; }
     { name = "chameleon.nvim"; path = chameleon-nvim; }
     { name = "mini.ai"; path = mini-nvim; }
+    { name = "mini.icons"; path = mini-nvim; }
     { name = "mini.bufremove"; path = mini-nvim; }
     { name = "mini.comment"; path = mini-nvim; }
     { name = "mini.indentscope"; path = mini-nvim; }
