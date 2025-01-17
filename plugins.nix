@@ -1,7 +1,7 @@
 { pkgs, inputs, lib, ... }:
 let
   # Build plugins from github
-  huez-nvim = pkgs.vimUtils.buildVimPlugin { name = "huez.nvim"; src = inputs.huez-nvim; };
+  # huez-nvim = pkgs.vimUtils.buildVimPlugin { name = "huez.nvim"; src = inputs.huez-nvim; };
   blame-me-nvim = pkgs.vimUtils.buildVimPlugin { name = "blame-me.nvim"; src = inputs.blame-me-nvim; };
   pokemon-nvim = pkgs.vimUtils.buildVimPlugin { name = "pokemon.nvim"; src = inputs.pokemon-nvim; };
   chameleon-nvim = pkgs.vimUtils.buildVimPlugin { name = "chameleon.nvim"; src = inputs.chameleon-nvim; };
@@ -42,7 +42,8 @@ let
     noice-nvim
     none-ls-nvim
     nui-nvim
-    nvim-cmp
+    #nvim-cmp
+    blink-cmp
     nvim-dap
     nvim-dap-ui
     nvim-dap-virtual-text
@@ -66,7 +67,8 @@ let
     sqlite-lua
     rustaceanvim
     telescope-fzf-native-nvim
-    telescope-nvim
+    # telescope-nvim
+    fzf-lua
     tmux-navigator
     todo-comments-nvim
     tokyonight-nvim
@@ -83,7 +85,7 @@ let
     { name = "LuaSnip"; path = luasnip; }
     { name = "blame-me.nvim"; path = blame-me-nvim; }
     { name = "catppuccin"; path = catppuccin-nvim; }
-    { name = "huez.nvim"; path = huez-nvim; }
+    # { name = "huez.nvim"; path = huez-nvim; }
     { name = "pokemon.nvim"; path = pokemon-nvim; }
     { name = "chameleon.nvim"; path = chameleon-nvim; }
     { name = "mini.ai"; path = mini-nvim; }

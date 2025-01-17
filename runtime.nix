@@ -22,6 +22,7 @@ pkgs.symlinkJoin {
     lazygit
     ripgrep
     fd
+    fzf
 
     # LSP's
     clangd

@@ -56,33 +56,35 @@ return {
   },
   {
     "LazyVim/LazyVim",
-    dependencies = { "vague2k/huez.nvim", "varchaar/chameleon.nvim" },
+    dependencies = { "varchaar/chameleon.nvim" },
     opts = {
       news = { lazyvim = false },
-      colorscheme = function()
-        local colorscheme = require("huez-manager.api.colorscheme").get()
-        vim.cmd("colorscheme " .. colorscheme)
-        require("chameleon").apply()
-      end,
+      colorscheme = "catppuccin",
+      -- colorscheme = function()
+      --   -- local colorscheme = require("huez-manager.api.colorscheme").get()
+      --   -- vim.cmd("colorscheme " .. colorscheme)
+      --   require("chameleon").apply()
+      --   return "catppuccin"
+      -- end,
     },
   },
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      { "<leader>uC", false },
-    },
-  },
-  {
-    "vague2k/huez.nvim",
-    branch = "stable",
-    event = "UIEnter",
-    config = function()
-      require("huez").setup({
-        fallback = "catppuccin",
-      })
-    end,
-    keys = {
-      { "<leader>uC", "<cmd>Huez<CR>", desc = "Colorscheme with Preview" },
-    },
-  },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   keys = {
+  --     { "<leader>uC", false },
+  --   },
+  -- },
+  -- {
+  --   "vague2k/huez.nvim",
+  --   branch = "stable",
+  --   event = "UIEnter",
+  --   config = function()
+  --     require("huez").setup({
+  --       fallback = "catppuccin",
+  --     })
+  --   end,
+  --   keys = {
+  --     { "<leader>uC", "<cmd>Huez<CR>", desc = "Colorscheme with Preview" },
+  --   },
+  -- },
 }
