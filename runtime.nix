@@ -1,7 +1,11 @@
 { pkgs, ... }:
 let
   make-lazy = pkg: bin: pkgs.writeShellScriptBin "${bin}" ''
-    nix shell nixpkgs#${pkg} --command ${bin} "$@"
+    if [$(type ${bin} &> /dev/null)]; then
+      ${bin}
+    else
+      nix shell nixpkgs#${pkg} --command ${bin} "$@"
+    fi
   '';
 
   clangd = pkgs.writeShellScriptBin "clangd" ''
@@ -34,6 +38,7 @@ pkgs.symlinkJoin {
     (make-lazy "yaml-language-server" "yaml-language-server")
     (make-lazy "lua-language-server" "lua-language-server")
     (make-lazy "vue-language-server" "vue-language-server")
+    (make-lazy "nodePackages.@prisma/language-server" "prisma-language-server")
     vtsls
 
     ## Rust
