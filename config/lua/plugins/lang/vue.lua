@@ -1,7 +1,4 @@
 return {
-  -- depends on the typescript extra
-  { import = "lazyvim.plugins.extras.lang.typescript" },
-
   -- Add LSP servers
   {
     "neovim/nvim-lspconfig",
