@@ -26,8 +26,6 @@ let
       nix shell nixpkgs#clang-tools_16 --command clangd "$@"
     fi
   '';
-
-  vtsls = pkgs.callPackage ./pkgs/vtsls { };
 in
 # Link together all runtime dependencies into one derivation
 pkgs.symlinkJoin {
@@ -50,7 +48,7 @@ pkgs.symlinkJoin {
     (make-lazy "lua-language-server" "lua-language-server")
     (make-lazy "vue-language-server" "vue-language-server")
     (make-lazy "nodePackages.@prisma/language-server" "prisma-language-server")
-    vtsls
+    (make-lazy "vtsls" "vtsls")
 
     ## Rust
     (make-lazy "rust-analyzer" "rust-analyzer")
@@ -59,7 +57,7 @@ pkgs.symlinkJoin {
     (make-lazy "cargo" "cargo")
     (make-lazy "codelldb" "codelldb")
 
-    ##  Go  
+    ##  Go
     (make-lazy "gopls" "gopls")
     (make-lazy "gotools" "goimports")
     (make-lazy "gomodifytags" "gomodifytags")

@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 require("lazy").setup({
   defaults = { lazy = true, version = false },
   dev = {

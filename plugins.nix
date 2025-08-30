@@ -1,14 +1,31 @@
-{ pkgs, inputs, lib, ... }:
+{ pkgs
+, inputs
+, lib
+, ...
+}:
 let
   # Build plugins from github
   # huez-nvim = pkgs.vimUtils.buildVimPlugin { name = "huez.nvim"; src = inputs.huez-nvim; };
-  blame-me-nvim = pkgs.vimUtils.buildVimPlugin { name = "blame-me.nvim"; src = inputs.blame-me-nvim; };
-  pokemon-nvim = pkgs.vimUtils.buildVimPlugin { name = "pokemon.nvim"; src = inputs.pokemon-nvim; };
-  chameleon-nvim = pkgs.vimUtils.buildVimPlugin { name = "chameleon.nvim"; src = inputs.chameleon-nvim; };
+  blame-me-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "blame-me.nvim";
+    src = inputs.blame-me-nvim;
+  };
+  pokemon-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "pokemon.nvim";
+    src = inputs.pokemon-nvim;
+  };
+  chameleon-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "chameleon.nvim";
+    src = inputs.chameleon-nvim;
+  };
 
-  mkEntryFromDrv = drv:
+  mkEntryFromDrv =
+    drv:
     if lib.isDerivation drv then
-      { name = "${lib.getName drv}"; path = drv; }
+      {
+        name = "${lib.getName drv}";
+        path = drv;
+      }
     else
       drv;
 
@@ -82,20 +99,59 @@ let
     lazydev-nvim
     grug-far-nvim
     git-blame-nvim
-    { name = "LuaSnip"; path = luasnip; }
-    { name = "blame-me.nvim"; path = blame-me-nvim; }
-    { name = "catppuccin"; path = catppuccin-nvim; }
+    {
+      name = "LuaSnip";
+      path = luasnip;
+    }
+    {
+      name = "blame-me.nvim";
+      path = blame-me-nvim;
+    }
+    {
+      name = "catppuccin";
+      path = catppuccin-nvim;
+    }
     # { name = "huez.nvim"; path = huez-nvim; }
-    { name = "pokemon.nvim"; path = pokemon-nvim; }
-    { name = "chameleon.nvim"; path = chameleon-nvim; }
-    { name = "mini.ai"; path = mini-nvim; }
-    { name = "mini.icons"; path = mini-nvim; }
-    { name = "mini.bufremove"; path = mini-nvim; }
-    { name = "mini.comment"; path = mini-nvim; }
-    { name = "mini.indentscope"; path = mini-nvim; }
-    { name = "mini.pairs"; path = mini-nvim; }
-    { name = "mini.surround"; path = mini-nvim; }
-    { name = "yanky.nvim"; path = yanky-nvim; }
+    {
+      name = "pokemon.nvim";
+      path = pokemon-nvim;
+    }
+    {
+      name = "chameleon.nvim";
+      path = chameleon-nvim;
+    }
+    {
+      name = "mini.ai";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.icons";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.bufremove";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.comment";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.indentscope";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.pairs";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.surround";
+      path = mini-nvim;
+    }
+    {
+      name = "yanky.nvim";
+      path = yanky-nvim;
+    }
   ];
 in
 # Link together all plugins into a single derivation
