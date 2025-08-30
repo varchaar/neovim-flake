@@ -1,12 +1,23 @@
 { pkgs, ... }:
 let
-  make-lazy = pkg: bin: pkgs.writeShellScriptBin "${bin}" ''
-    if [$(type ${bin} &> /dev/null)]; then
-      ${bin}
-    else
-      nix shell nixpkgs#${pkg} --command ${bin} "$@"
-    fi
-  '';
+  make-lazy =
+    pkg: bin:
+    pkgs.writeShellScriptBin "${bin}" ''
+      # Get the full path of this wrapper script
+      WRAPPER_PATH="$(readlink -f "$0")"
+
+      # Search through PATH for the real binary, excluding this wrapper
+      IFS=':'
+      for dir in $PATH; do
+        CANDIDATE="$dir/${bin}"
+        if [ -x "$CANDIDATE" ] && [ "$(readlink -f "$CANDIDATE")" != "$WRAPPER_PATH" ]; then
+          exec "$CANDIDATE" "$@"
+        fi
+      done
+
+      # If not found in PATH, use nix shell
+      exec nix shell nixpkgs#${pkg} --command ${bin} "$@"
+    '';
 
   clangd = pkgs.writeShellScriptBin "clangd" ''
     if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
