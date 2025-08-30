@@ -36,6 +36,10 @@ pkgs.symlinkJoin {
     ripgrep
     fd
     fzf
+    ghostscript
+    tectonic
+    mermaid-cli
+    imagemagick
 
     # LSP's
     clangd
@@ -46,6 +50,8 @@ pkgs.symlinkJoin {
     (make-lazy "neocmakelsp" "neocmakelsp")
     (make-lazy "yaml-language-server" "yaml-language-server")
     (make-lazy "lua-language-server" "lua-language-server")
+    (make-lazy "luarocks" "luarocks")
+    (make-lazy "lua51Packages.lua" "lua")
     (make-lazy "vue-language-server" "vue-language-server")
     (make-lazy "nodePackages.@prisma/language-server" "prisma-language-server")
     (make-lazy "vtsls" "vtsls")

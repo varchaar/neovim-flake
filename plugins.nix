@@ -1,7 +1,8 @@
-{ pkgs
-, inputs
-, lib
-, ...
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
 }:
 let
   # Build plugins from github
@@ -42,7 +43,6 @@ let
     conform-nvim
     crates-nvim
     dracula-nvim
-    dressing-nvim
     flash-nvim
     friendly-snippets
     nvim-snippets

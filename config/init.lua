@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 require("lazy").setup({
   defaults = { lazy = true, version = false },
   dev = {
@@ -18,6 +17,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.prisma" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.editor.snacks_picker" },
     -- The following configs are needed for fixing lazyvim on nix
     -- force enable telescope-fzf-native.nvim
     -- { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
