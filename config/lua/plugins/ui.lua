@@ -1,22 +1,22 @@
 return {
-    {
-        "folke/snacks.nvim",
-        dependencies = {
-            "ColaMint/pokemon.nvim",
-            "varchaar/chameleon.nvim",
-        },
-        opts = function()
-            local pokemon = require("pokemon")
-            math.randomseed(os.time())
-            local pokemonNumber = string.format("%04d", math.random(1, 493))
-            pokemon.setup({
-                number = pokemonNumber,
-                size = "auto",
-            })
-            return {
-                dashboard = {
-                    preset = {
-                        header = table.concat(pokemon.header(), "\n"),
+  {
+    "folke/snacks.nvim",
+    dependencies = {
+      "ColaMint/pokemon.nvim",
+      "varchaar/chameleon.nvim",
+    },
+    opts = function()
+      local pokemon = require("pokemon")
+      math.randomseed(os.time())
+      local pokemonNumber = string.format("%04d", math.random(1, 493))
+      pokemon.setup({
+        number = pokemonNumber,
+        size = "auto",
+      })
+      return {
+        dashboard = {
+          preset = {
+            header = table.concat(pokemon.header(), "\n"),
                         -- stylua: ignore
                         keys = {
                             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
@@ -38,21 +38,28 @@ return {
                                 end
                             },
                         },
-                    },
-                },
-                explorer = {
-                    replace_netrw = true,
-                },
-                image = { enabled = true },
-                indent = { enabled = true },
-                input = { enabled = true },
-                notifier = { enabled = true },
-                scope = { enabled = true },
-                scroll = { enabled = true },
-                statuscolumn = { enabled = false }, -- we set this in options.lua
-                -- toggle = { map = LazyVim.safe_keymap_set },
-                words = { enabled = true },
-            }
-        end,
-    },
+          },
+        },
+        explorer = {
+          replace_netrw = true,
+        },
+        image = { enabled = true },
+        indent = { enabled = true },
+        input = { enabled = true },
+        notifier = { enabled = true },
+        scope = { enabled = true },
+        scroll = { enabled = true },
+        statuscolumn = { enabled = false }, -- we set this in options.lua
+        -- toggle = { map = LazyVim.safe_keymap_set },
+        words = { enabled = true },
+        picker = {
+          sources = {
+            noice = {
+              confirm = { "yank", "close" },
+            },
+          },
+        },
+      }
+    end,
+  },
 }
