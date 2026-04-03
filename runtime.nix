@@ -40,6 +40,7 @@ pkgs.symlinkJoin {
     tectonic
     mermaid-cli
     imagemagick
+    tree-sitter
 
     # LSP's
     clangd

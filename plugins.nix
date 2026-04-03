@@ -80,13 +80,12 @@ let
     persistence-nvim
     plenary-nvim
     project-nvim
-    rust-tools-nvim
     sqlite-lua
     rustaceanvim
     telescope-fzf-native-nvim
     # telescope-nvim
     fzf-lua
-    tmux-navigator
+    vim-tmux-navigator
     todo-comments-nvim
     tokyonight-nvim
     trouble-nvim

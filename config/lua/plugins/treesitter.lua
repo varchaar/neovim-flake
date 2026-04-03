@@ -9,7 +9,7 @@ return {
       -- during startup.
       vim.opt.rtp:prepend(vim.g.treesitter_path)
       require("lazy.core.loader").add_to_rtp(plugin)
-      require("nvim-treesitter.query_predicates")
+      -- require("nvim-treesitter.install e")
     end,
     opts_extend = {},
     opts = {
