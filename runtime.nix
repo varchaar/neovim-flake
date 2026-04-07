@@ -42,6 +42,9 @@ pkgs.symlinkJoin {
     imagemagick
     tree-sitter
 
+    # cursortab
+    go
+
     # LSP's
     clangd
     (make-lazy "cmake-format" "cmake-lint")

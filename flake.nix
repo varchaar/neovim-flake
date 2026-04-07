@@ -25,6 +25,10 @@
       url = "github:varchaar/chameleon.nvim";
       flake = false;
     };
+    cursortab-nvim = {
+      url = "github:cursortab/cursortab.nvim";
+      flake = false;
+    };
   };
 
   outputs =

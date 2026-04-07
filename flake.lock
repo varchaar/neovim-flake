@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "cursortab-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775288626,
+        "narHash": "sha256-9FDYv3O6O9gDSmVAczJz+dl6BqYXr5lgtcsHy0DZUoE=",
+        "owner": "cursortab",
+        "repo": "cursortab.nvim",
+        "rev": "9c832f598375e06ad3138b62d205487e193ffc1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cursortab",
+        "repo": "cursortab.nvim",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -163,6 +179,7 @@
       "inputs": {
         "blame-me-nvim": "blame-me-nvim",
         "chameleon-nvim": "chameleon-nvim",
+        "cursortab-nvim": "cursortab-nvim",
         "flake-parts": "flake-parts",
         "huez-nvim": "huez-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",

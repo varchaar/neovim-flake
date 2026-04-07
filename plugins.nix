@@ -20,6 +20,28 @@ let
     src = inputs.chameleon-nvim;
   };
 
+  # Build the Go server component separately
+  cursortab-server = pkgs.buildGoModule {
+    pname = "cursortab-server";
+    version = "unstable";
+    src = "${inputs.cursortab-nvim}/server";
+    vendorHash = "sha256-IvJw+89eZ5Ghppjt0KT9IRL8XPyU6XbiAYL3axQO6u4=";
+  };
+
+  cursortab-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "cursortab.nvim";
+    version = "unstable";
+    src = inputs.cursortab-nvim;
+    # Patch to use direct Nix store path for server binary
+    # (nixvim bundles plugins into plugin-pack, losing the server/ directory)
+    postPatch = ''
+      substituteInPlace lua/cursortab/daemon.lua \
+        --replace-fail 'local binary_path = plugin_dir .. "/server/" .. binary_name' \
+                       'local binary_path = "${cursortab-server}/bin/cursortab"'
+    '';
+    nvimRequireCheck = [ "cursortab" ];
+  };
+
   mkEntryFromDrv =
     drv:
     if lib.isDerivation drv then
@@ -118,6 +140,10 @@ let
     {
       name = "chameleon.nvim";
       path = chameleon-nvim;
+    }
+    {
+      name = "cursortab.nvim";
+      path = cursortab-nvim;
     }
     {
       name = "mini.ai";
