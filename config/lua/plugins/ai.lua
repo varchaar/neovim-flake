@@ -7,8 +7,8 @@ return {
     config = function()
       require("cursortab").setup({
         provider = {
-          type = "sweep",
-          model = "sweep",
+          type = "zeta-2",
+          model = "zed-industries_zeta-2",
           url = "http://192.168.100.204:8080",
         },
       })
