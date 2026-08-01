@@ -41,6 +41,8 @@ pkgs.symlinkJoin {
     mermaid-cli
     imagemagick
     tree-sitter
+    vue-language-server
+    astro-language-server
 
     # cursortab
     go
@@ -57,6 +59,7 @@ pkgs.symlinkJoin {
     (make-lazy "luarocks" "luarocks")
     (make-lazy "lua51Packages.lua" "lua")
     (make-lazy "vue-language-server" "vue-language-server")
+    (make-lazy "vscode-json-languageserver" "vscode-json-language-server")
     (make-lazy "astro-language-server" "astro-ls")
     (make-lazy "nodePackages.@prisma/language-server" "prisma-language-server")
     (make-lazy "vtsls" "vtsls")
